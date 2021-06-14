@@ -1,0 +1,20 @@
+.phim {
+    width: 80%;
+    margin: auto;
+    .phim__content {
+        top: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.ytb {
+    text-align: center;
+    top: 0;
+    left: 40%;
+    position: absolute;
+}
+
+mat-grid-tile {
+    background: lightblue;
+}

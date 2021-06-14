@@ -1,0 +1,57 @@
+<button class="btn btn-info" (click)="showThemPhim()">them phim</button>
+
+<div *ngIf="hien;then themPhim"></div>
+
+
+
+<ng-template #themPhim>
+    <div class="container mx-auto mb-5">
+        <h2 class="text-center">Thêm Phim</h2>
+        <form #formThemPhim="ngForm" (ngSubmit)="ThemPhim(formThemPhim.value)">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Mã Phim</label>
+                <input type="text" class="form-control" ngModel name="maPhim">
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Tên Phim</label>
+                <input type="text" class="form-control" ngModel name="tenPhim">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Bí Danh</label>
+                <input type="text" class="form-control" ngModel name="biDanh">
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">TraiLer</label>
+                <input type="text" class="form-control" ngModel name="trailer">
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Hình ảnh</label>
+                <input type="text" class="form-control" ngModel name="hinhAnh">
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Mô tả</label>
+                <input type="text" class="form-control" ngModel name="moTa">
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">ngày khởi chiếu</label>
+                <input type="text" class="form-control" ngModel name="ngayKhoiChieu">
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">đánh giá</label>
+                <input type="text" class="form-control" ngModel name="danhGia">
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">thêm</button>
+        </form>
+
+    </div>
+
+
+</ng-template>

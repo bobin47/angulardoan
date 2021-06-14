@@ -1,0 +1,7 @@
+<div *ngFor="let lichChieu of DanhSachPhim.lichChieu | slice:0:4 ">
+
+    <button class=" btn btn-danger" routerLink="/datve/{{lichChieu.maLichChieu}}">{{lichChieu.ngayChieuGioChieu | date:'dd/MM, hh:mm'}}</button>
+
+
+
+</div>

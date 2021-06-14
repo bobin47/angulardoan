@@ -1,0 +1,32 @@
+<app-carousel [DanhSachPhim]="DanhSachPhim"></app-carousel>
+<div class="text-center">
+    <button mat-raised-button color="primary" class="mr-3 m-3" (click)="HienPhimDangChieu()">
+    Phim Đang Chiếu
+  </button>
+    <button mat-raised-button color="warn" class="mr-2 m-3" (click)="HienPhimSapChieu()">
+    Phim Sắp chiếu
+  </button>
+</div>
+
+<div *ngIf="static; else phimSapChieu">
+
+    <app-phim [DsPhim]="DanhSachPhim"></app-phim>
+</div>
+
+<ng-template #phimSapChieu>
+    <div class="phim">
+        <mat-grid-list cols="2" rowHeight="2:1">
+            <div *ngFor="let phim of DanhSachPhim | slice: 0:8">
+                <mat-grid-tile>
+                    <img class="" [src]="phim.hinhAnh" alt="" />
+                    <div class="phim__content">
+                        <h2>Tên Phim: {{ phim.tenPhim }}</h2>
+                        <p class="card-text">{{ phim.moTa }}</p>
+                        <p>Ngày Ra Mắt {{ phim.ngayKhoiChieu | date: "dd/MM/yyyy" }}</p>
+                        <button mat-raised-button color="primary">Chi Tiet</button>
+                    </div>
+                </mat-grid-tile>
+            </div>
+        </mat-grid-list>
+    </div>
+</ng-template>

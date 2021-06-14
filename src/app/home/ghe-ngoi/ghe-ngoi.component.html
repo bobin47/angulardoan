@@ -1,0 +1,9 @@
+<ng-container *ngIf="!itemGheNgoi.daDat; else gheDaDcChon">
+    <button class="btn btn-success m-3" (click)="datGhe()" [ngClass]="{ 'btn btn-danger': static }">
+    {{ itemGheNgoi.tenGhe }}
+  </button>
+</ng-container>
+
+<ng-template #gheDaDcChon>
+    <button class="btn-danger m-3" disabled>{{ itemGheNgoi.tenGhe }}</button>
+</ng-template>

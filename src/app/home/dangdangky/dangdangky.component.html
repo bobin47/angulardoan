@@ -1,0 +1,62 @@
+<div class="container">
+
+    <h1>Đăng Ký tài Khoản</h1>
+    <div class="row">
+
+        <div class="col-5 mx-auto">
+
+            <form #formDangKy="ngForm" (ngSubmit)="DangKy(formDangKy.value)">
+                <mat-form-field class="form-field my-3" appearance="fill">
+                    <mat-label>Tài Khoản</mat-label>
+                    <input matInput required ngModel name="taiKhoan" #taiKhoan="ngModel" />
+
+                    <mat-error> Tài Khoảng Không Được Để trống </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-field my-3" appearance="fill">
+                    <mat-label>Mật Khẩu</mat-label>
+                    <input matInput type="text" required ngModel name="matKhau" m #matKhau="ngModel" />
+                    <mat-error>
+                        <div>Mật Khẩu Không Được Để trống</div>
+                        <div>Mật Khẩu từ 10 đến 20 ký tự</div>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-field my-3" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" required ngModel name="email" />
+                    <mat-error> Email Không Được Để trống </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-field my-3" appearance="fill">
+                    <mat-label>SDT</mat-label>
+                    <input matInput type="text" required ngModel name="SoDt" />
+                </mat-form-field>
+
+                <mat-form-field class="form-field my-3" appearance="fill">
+                    <mat-label>mã loại</mat-label>
+                    <input matInput type="text" ngModel required name="maLoaiNguoiDung">
+                </mat-form-field>
+
+                <mat-form-field class="form-field my-3" appearance="fill">
+                    <mat-label>Họ Tên</mat-label>
+                    <input matInput type="text" required ngModel name="hoTen" />
+                    <mat-error> Họ Tên Không Được Để trống </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-field my-3" appearance="fill">
+                    <mat-label>
+                        Mã Nhóm
+                    </mat-label>
+                    <input matInput type="text" required ngModel name="maNhom">
+                </mat-form-field>
+
+                <div>
+                    <button class="btn btn-dark my-3" type="submit" [disabled]="formDangKy.invalid">
+            Đăng Ký
+          </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

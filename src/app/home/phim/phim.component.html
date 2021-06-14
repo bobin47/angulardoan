@@ -1,0 +1,15 @@
+<mat-grid-list cols="2" rowHeight="2:1" class="phim">
+    <div *ngFor="let phim of DsPhim | slice: 0:12">
+        <mat-grid-tile>
+            <img class="" [src]="phim.hinhAnh" alt="" />
+            <div class="phim__content">
+                <h2>Tên Phim: {{ phim.tenPhim }}</h2>
+                <p>Mô Tả:</p>
+                <p class="card-text"> {{ phim.moTa }}</p>
+
+                <button mat-raised-button color="primary" routerLink="/chitiet/{{ phim.maPhim }}">Chi
+          Tiet</button>
+            </div>
+        </mat-grid-tile>
+    </div>
+</mat-grid-list>

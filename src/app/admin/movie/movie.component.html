@@ -1,0 +1,83 @@
+<app-themphim></app-themphim>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tên Phim</th>
+            <th>Mô tả</th>
+            <th class="mota">hình Ảnh</th>
+            <th>Ngày khởi chiếu</th>
+            <th>đánh giá</th>
+            <th>trailer</th>
+            <th>Bí Danh</th>
+            <th>mã Phim</th>
+
+            <th>thao tac</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let phim of danhSachPhim">
+            <td>{{ phim.tenPhim }}</td>
+            <td class="mota">{{ phim.moTa }}</td>
+            <td><img [src]="phim.hinhAnh" alt="" /></td>
+            <td>{{ phim.ngayKhoiChieu | date: "MM/dd/yy" }}</td>
+            <td>{{ phim.danhGia }}</td>
+            <td>{{ phim.trailer }}</td>
+            <td>{{ phim.biDanh }}</td>
+            <td>{{ phim.maPhim }}</td>
+
+            <!-- cap Nhap -->
+
+            <td class="d-flex">
+                <button class="btn btn-success" #btnCapNhatPhim [attr.data-tenPhim]="phim.tenPhim" [attr.data-mota]="phim.moTa" [attr.data-hinhAnh]="phim.hinhAnh" [attr.data-ngayKhoiChieu]="phim.ngayKhoiChieu" [attr.data-danhGia]="phim.danhGia" [attr.data-trailer]="phim.trailer"
+                    [attr.data-bidanh]="phim.biDanh" [attr.data-maPhim]="phim.maPhim" (click)="layDataPhim(btnCapNhatPhim)" data-toggle="modal" data-target="#exampleModal" type="button">
+          cap Nhat
+        </button>
+
+                <!-- Xóa -->
+                <button mat-fab color="warn" (click)="XoaPhim(phim.maPhim)">
+          <mat-icon>delete</mat-icon>
+        </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-group" #formCapNhatPhim="ngForm" (ngSubmit)="capNhatMovie(formCapNhatPhim.value)">
+                    <h3>Tên Phim</h3>
+                    <input type="text" ngModel name="tenPhim" />
+                    <h3>Mô tả</h3>
+                    <input type="text" ngModel name="moTa" />
+                    <h3>Hình ảnh</h3>
+                    <input type="text" ngModel name="hinhAnh" />
+                    <h3>Ngày Khởi Chiếu</h3>
+                    <input type="text" ngModel name="ngayKhoiChieu" />
+                    <h3>Đánh giá</h3>
+                    <input type="text" ngModel name="danhGia" />
+                    <h3>TraiLer</h3>
+                    <input type="text" ngModel name="trailer" />
+                    <h3>Bí danh</h3>
+                    <input type="text" ngModel name="biDanh" />
+                    <h3>Mã Phim</h3>
+                    <input type="text" ngModel name="maPhim" />
+                    <button type="submit" class="btn btn-primary">cap nhat</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+            </div>
+        </div>
+    </div>
+</div>

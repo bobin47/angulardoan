@@ -1,0 +1,28 @@
+<section class="container content ">
+    <div class=" my-5">
+        <img [src]="chiTietPhim.hinhAnh" alt="">
+    </div>
+    <div [ngSwitch]="loaiChiTiet" class="Bg m-5">
+        <button class=" my-5" mat-raised-button color="primary" (click)="chonThongTin('thongTin')">Thông tin</button>
+        <button class=" my-5" mat-raised-button color="accent" (click)="chonThongTin('trailer')">Trailer</button>
+        <button class=" my-5" mat-raised-button color="warn" (click)="chonThongTin('lichChieu') ">Lịch Chiếu</button>
+
+        <div *ngSwitchCase="'thongTin'" class="m-5 Bg">
+            <h1 class="tieuDe">Thông tin Phim</h1>
+            <h2>ten phim:{{chiTietPhim.tenPhim}}</h2>
+            <p>Mô Tả: {{chiTietPhim.moTa}} </p>
+        </div>
+
+        <div class="m-5">
+
+            <iframe *ngSwitchCase="'trailer'" width="560" height="315" [src]=" chiTietPhim.trailer | safe " frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <ng-template></ng-template>
+        </div>
+
+
+        <div *ngSwitchCase="'lichChieu'" class="m-5">
+            <h1 class="tieuDe">Lịch Chiếu Phim</h1>
+            <app-lich-chieu [DanhSachPhim]="chiTietPhim"></app-lich-chieu>
+        </div>
+    </div>
+</section>

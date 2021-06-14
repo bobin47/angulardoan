@@ -1,0 +1,37 @@
+<div class="row">
+    <div class=" bg-secondary p-4">
+        <h1 class="display-4 text-center text-white">Danh Sách Ghế Ngồi</h1>
+
+        <div class="container">
+            <div class="row datGhe">
+                <div class="col-12 ">
+
+                    <app-ghe-ngoi *ngFor="let ghe of danhSachGhe | slice : 0 :60" [itemGheNgoi]="ghe" (emitGhe)="datGheParent($event,ghe)"> </app-ghe-ngoi>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ml-3">
+        <div class="card text-left">
+
+            <div class="card-body">
+                <h1 class="display-4 text-center">Hiển Thị Thông Tin Ghế</h1>
+
+                <p>Số ghế đã đặt: {{soGheDaDat}}</p>
+                <p>Số ghế còn lại: {{soGheConLai}} </p>
+
+                <h2>ghế bạn đang đặt</h2>
+                <p *ngFor="let ghe of danhSachGheDangDat">
+                    tên ghế: <span> {{ghe.tenGhe}} </span> giá vé: <span> {{ghe.giaVe}} </span>
+
+                </p>
+
+            </div>
+            <button class="btn btn-info m-3" (click)=" datVe()">Đặt vé</button>
+
+        </div>
+    </div>
+
+
+</div>

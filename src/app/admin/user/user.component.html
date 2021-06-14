@@ -1,0 +1,74 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tài Khoản</th>
+                <th>mật Khẩu</th>
+                <th>họ Tên</th>
+                <th>email</th>
+                <th>người dùng</th>
+                <th>SDT</th>
+
+                <th>Thao tac</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let nguoiDung of danhSachNguoiDung">
+                <td> {{nguoiDung.taiKhoan}} </td>
+                <td>{{nguoiDung.matKhau}}</td>
+                <td>{{nguoiDung.hoTen}}</td>
+                <td> {{nguoiDung.email}} </td>
+                <td>{{nguoiDung.maLoaiNguoiDung}}</td>
+                <td>{{nguoiDung.soDt}}</td>
+
+                <td><button #btnCapNhap [attr.data-taiKhoan]="nguoiDung.taiKhoan" [attr.data-matKhau]="nguoiDung.matKhau" [attr.data-hoTen]="nguoiDung.hoTen" [attr.data-email]="nguoiDung.email" [attr.data-maLoaiNguoiDung]="nguoiDung.maLoaiNguoiDung" [attr.data-soDt]="nguoiDung.soDt"
+                        (click)="capNhat(btnCapNhap)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">cap nhat</button></td>
+                <td>
+                    <button mat-fab color="warn" (click)="xoa(nguoiDung.taiKhoan)">
+            <mat-icon>delete</mat-icon>
+          </button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<div class="modal fade  " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body ">
+                <form class="form-group" #formCapNhat="ngForm" (ngSubmit)=" capNhatNG(formCapNhat.value)">
+                    <h3>tài khoảng</h3>
+                    <input type="text" ngModel name="taiKhoan">
+                    <h3>mat Khau</h3>
+                    <input type="text" ngModel name="matKhau">
+                    <h3>email</h3>
+                    <input type="text" ngModel name="email">
+                    <h3>SDT</h3>
+                    <input type="text" ngModel name="soDt">
+                    <h3>Ho ten</h3>
+                    <input type="text" ngModel name="hoTen">
+                    <h3>Ho ten</h3>
+                    <input type="text" ngModel name="maLoaiNguoiDung">
+                    <button type="submit" class="btn btn-primary">cap nhat</button>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
